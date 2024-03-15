@@ -7,6 +7,11 @@ echo "Installing Python 3.9 and Virtual Environment"
 sudo apt-get update
 sudo DEBIAN_FRONTEND=noninteractive apt-get install -y python3.9 python3.9-venv
 
+echo "Making Python 3.8 the default..."
+sudo update-alternatives --remove-all python3
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 1
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.9 2
+
 echo "Checking the Python version..."
 python3.9 --version
 
